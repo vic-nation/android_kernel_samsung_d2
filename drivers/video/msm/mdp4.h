@@ -52,6 +52,10 @@ extern u32 mdp_bw_ib_factor;
 #define CS_CONTROLLER_0 0x0707ffff
 #define CS_CONTROLLER_1 0x03073f3f
 
+#if defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT)
+extern int is_lcd_connected ;
+#endif
+
 typedef int (*cmd_fxn_t)(struct platform_device *pdev);
 
 enum {		/* display */

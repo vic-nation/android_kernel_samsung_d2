@@ -268,7 +268,23 @@ static void mdp4_dsi_cmd_pipe_clean(struct vsync_update *vp)
 
 static void mdp4_dsi_cmd_blt_ov_update(struct mdp4_overlay_pipe *pipe);
 static int mdp4_dsi_cmd_clk_check(struct vsycn_ctrl *vctrl);
+#if defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT)
 
+static void mdp_lut_enable(void)
+{
+	uint32_t out;
+
+	if (mdp_lut_push) {
+		mutex_lock(&mdp_lut_push_lock);
+		mdp_lut_push = 0;
+		out = inpdw(MDP_BASE + 0x90070) & ~((0x1 << 10) | 0x7);
+		MDP_OUTP(MDP_BASE + 0x90070,
+			(mdp_lut_push_i << 10) | 0x7 | out);
+		mutex_unlock(&mdp_lut_push_lock);
+	}
+
+} 
+#endif
 int mdp4_dsi_cmd_pipe_commit(int cndx, int wait, u32 *release_busy)
 {
 	int  i, undx;
@@ -350,7 +366,12 @@ int mdp4_dsi_cmd_pipe_commit(int cndx, int wait, u32 *release_busy)
 		pr_debug("%s: wait4dmap\n", __func__);
 		mdp4_dsi_cmd_wait4dmap(0);
 	}
-
+#if defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT)
+	if(mdp_lut_push) {
+		mipi_dsi_mdp_busy_wait();
+		mdp_lut_enable();
+	} 
+#endif
 	if (need_ov_wait) {
 		pr_debug("%s: wait4ov\n", __func__);
 		mdp4_dsi_cmd_wait4ov(0);

@@ -198,6 +198,10 @@ struct msm_fb_data_type {
 	boolean resume_state; 
 	boolean backlight_ctrl_ongoing; 
 	int cont_splash_done;
+#if defined(CONFIG_FB_MSM_MIPI_CMD_PANEL_VSYNC)
+	void (*cmd_panel_disp_on)(struct msm_fb_data_type *mfd);
+	boolean display_on_status;
+#endif
 	void *cpu_pm_hdl;
 	u32 acq_fen_cnt;
 	struct sync_fence *acq_fen[MDP_MAX_FENCE_FD];

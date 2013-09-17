@@ -1434,6 +1434,8 @@ static int get_mclk_rev(void)
 	return ((system_rev >= BOARD_REV03) ? 1 : 0);
 #elif defined(CONFIG_MACH_EXPRESS)
 	return ((system_rev >= BOARD_REV03) ? 1 : 0);
+	#elif defined(CONFIG_MACH_GOGH)
+	return ((system_rev >= BOARD_REV03) ? 1 : 0);
 #elif defined(CONFIG_MACH_AEGIS2)
 	return ((system_rev >= BOARD_REV07) ? 1 : 0);
 #elif defined(CONFIG_MACH_JASPER)

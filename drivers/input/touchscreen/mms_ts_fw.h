@@ -1,7 +1,8 @@
 /* Melfas MMS-100 seies firmware list */
 
 #if defined(CONFIG_TOUCHSCREEN_MMS136) || \
-	defined(CONFIG_TOUCHSCREEN_MMS136_TABLET)
+	defined(CONFIG_TOUCHSCREEN_MMS136_TABLET) || \
+	defined(CONFIG_TOUCHSCREEN_MMS134S)
 
 #if defined(CONFIG_MACH_JASPER)
 #define SEC_TKEY_FACTORY_TEST
@@ -12,7 +13,7 @@
 #include "apexq_fw.h"
 #elif defined(CONFIG_MACH_INFINITE)
 #define SEC_TKEY_FACTORY_TEST
-#define FW_VERSION 0x1
+#define FW_VERSION 0x10
 #include "infinite_fw.h"
 #elif defined(CONFIG_MACH_GOGH)
 #define FW_VERSION 0x11

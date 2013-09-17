@@ -897,7 +897,8 @@ static int mipi_dsi_cdp_panel_power(int on)
 	|| defined(CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT_PANEL) \
-	|| defined(CONFIG_MACH_EXPRESS)
+	|| defined(CONFIG_MACH_EXPRESS) || defined(CONFIG_MACH_GOGH) \
+	 || defined(CONFIG_MACH_INFINITE)
 	static struct regulator *reg_l23;
 #endif
 	static int gpio43;
@@ -942,7 +943,8 @@ static int mipi_dsi_cdp_panel_power(int on)
 	|| defined(CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT_PANEL) \
-	|| defined(CONFIG_MACH_EXPRESS)
+	|| defined(CONFIG_MACH_EXPRESS) || defined(CONFIG_MACH_GOGH) \
+	|| defined(CONFIG_MACH_INFINITE)
 		reg_l23 = regulator_get(&msm_mipi_dsi1_device.dev,
 				"dsi_vddio");
 		if (IS_ERR(reg_l23)) {
@@ -1003,7 +1005,8 @@ static int mipi_dsi_cdp_panel_power(int on)
 	|| defined(CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT_PANEL) \
-	|| defined(CONFIG_MACH_EXPRESS)
+	|| defined(CONFIG_MACH_EXPRESS) || defined(CONFIG_MACH_GOGH) \
+	|| defined(CONFIG_MACH_INFINITE)
 		rc = regulator_set_voltage(reg_l23, 1800000, 1800000);
 		if (rc) {
 			pr_err("set_voltage l23 failed, rc=%d\n", rc);
@@ -1029,7 +1032,8 @@ static int mipi_dsi_cdp_panel_power(int on)
 	|| defined(CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT_PANEL) \
-	|| defined(CONFIG_MACH_EXPRESS)
+	|| defined(CONFIG_MACH_EXPRESS) || defined(CONFIG_MACH_GOGH)\
+	|| defined(CONFIG_MACH_INFINITE)
 		rc = regulator_set_optimum_mode(reg_l23, 100000);
 		if (rc < 0) {
 			pr_err("set_optimum_mode l23 failed, rc=%d\n", rc);
@@ -1063,7 +1067,8 @@ static int mipi_dsi_cdp_panel_power(int on)
 	|| defined(CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT_PANEL) \
-	|| defined(CONFIG_MACH_EXPRESS)
+	|| defined(CONFIG_MACH_EXPRESS) || defined(CONFIG_MACH_GOGH) \
+	|| defined(CONFIG_MACH_INFINITE)
 		rc = regulator_enable(reg_l23);
 		if (rc) {
 			pr_err("enable l23 failed, rc=%d\n", rc);
@@ -1195,7 +1200,8 @@ static int mipi_dsi_cdp_panel_power(int on)
 	|| defined(CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT_PANEL) \
-	|| defined(CONFIG_MACH_EXPRESS)
+	|| defined(CONFIG_MACH_EXPRESS) || defined(CONFIG_MACH_GOGH) \
+	|| defined(CONFIG_MACH_INFINITE)
 		rc = regulator_set_optimum_mode(reg_l23, 100000);
 		if (rc < 0) {
 			pr_err("set_optimum_mode l23 failed, rc=%d\n", rc);
@@ -1217,7 +1223,8 @@ static int mipi_dsi_cdp_panel_power(int on)
 	|| defined(CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT_PANEL) \
-	|| defined(CONFIG_MACH_EXPRESS)
+	|| defined(CONFIG_MACH_EXPRESS) || defined(CONFIG_MACH_GOGH) \
+	|| defined(CONFIG_MACH_INFINITE)
 		rc = regulator_enable(reg_l23);
 		if (rc) {
 			pr_err("enable l23 failed, rc=%d\n", rc);
@@ -1303,7 +1310,8 @@ static int mipi_dsi_cdp_panel_power(int on)
 	|| defined(CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT_PANEL) \
-	|| defined(CONFIG_MACH_EXPRESS)
+	|| defined(CONFIG_MACH_EXPRESS) || defined(CONFIG_MACH_GOGH) \
+	|| defined(CONFIG_MACH_INFINITE)
 
 		rc = regulator_disable(reg_l23);
 		if (rc) {
@@ -1337,7 +1345,8 @@ static int mipi_dsi_cdp_panel_power(int on)
 	|| defined(CONFIG_FB_MSM_MIPI_SAMSUNG_OLED_VIDEO_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_CMD_WVGA_PT_PANEL) \
 	|| defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT_PANEL) \
-	|| defined(CONFIG_MACH_EXPRESS)
+	|| defined(CONFIG_MACH_EXPRESS) || defined(CONFIG_MACH_GOGH) \
+	|| defined(CONFIG_MACH_INFINITE)
 		rc = regulator_set_optimum_mode(reg_l23, 100);
 		if (rc < 0) {
 			pr_err("set_optimum_mode l23 failed, rc=%d\n", rc);

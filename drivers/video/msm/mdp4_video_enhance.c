@@ -332,7 +332,9 @@ void lut_tune(int num, unsigned int *pLutTable)
 
 	/*instead of an ioctl */
 	mdp_pipe_ctrl(MDP_CMD_BLOCK, MDP_BLOCK_POWER_ON, FALSE);
-
+#if defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT)
+	mdp_clk_ctrl(1);
+#endif
 	j = 0;
 	for (i = 0; i < cmap->len; i++) {
 		r_1 = pLutTable[j++];
@@ -351,6 +353,9 @@ void lut_tune(int num, unsigned int *pLutTable)
 
 	mfd = (struct msm_fb_data_type *) registered_fb[0]->par;
 	if (mfd->panel.type == MIPI_CMD_PANEL) {
+#if defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT)
+	mdp_clk_ctrl(0);
+#endif
 		mdp_pipe_ctrl(MDP_CMD_BLOCK, MDP_BLOCK_POWER_OFF, FALSE);
 		spin_lock_irqsave(&mdp_lut_push_lock, flags);
 		mdp_lut_push = 1;
@@ -360,6 +365,9 @@ void lut_tune(int num, unsigned int *pLutTable)
 		/*mask off non LUT select bits*/
 		out = inpdw(MDP_BASE + 0x90070) & ~((0x1 << 10) | 0x7);
 		MDP_OUTP(MDP_BASE + 0x90070, (mdp_lut_i << 10) | 0x7 | out);
+#if defined(CONFIG_FB_MSM_MIPI_NOVATEK_BOE_CMD_WVGA_PT)
+	mdp_clk_ctrl(0);
+#endif
 		mdp_pipe_ctrl(MDP_CMD_BLOCK, MDP_BLOCK_POWER_OFF, FALSE);
 	}
 

@@ -13,7 +13,9 @@
  *
  */
 
-#if defined(CONFIG_MACH_GOGH) || defined(CONFIG_MACH_INFINITE)
+#if defined(CONFIG_MACH_GOGH)
+#include "a2220_firmware_gogh_spr.h"
+#elif defined(CONFIG_MACH_INFINITE)
 #include "a2220_firmware_gogh.h"
 #elif defined(CONFIG_MACH_COMANCHE)
 #include "a2220_firmware_comanche.h"

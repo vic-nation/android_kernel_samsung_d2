@@ -1071,7 +1071,7 @@ static int __init get_pvs_bin(u32 pte_efuse)
 	return pvs_bin;
 }
 
-#if defined(CONFIG_MACH_APEXQ)
+#if defined(CONFIG_MACH_APEXQ) || defined(CONFIG_MACH_GOGH)
 uint32_t global_sec_pvs_value;
 static int __init sec_pvs_setup(char *str)
 {
@@ -1098,7 +1098,7 @@ static struct pvs_table * __init select_freq_plan(u32 pte_efuse_phys,
 {
 	void __iomem *pte_efuse;
 	u32 pte_efuse_val, tbl_idx, bin_idx;
-#if defined(CONFIG_MACH_APEXQ)
+#if defined(CONFIG_MACH_APEXQ) || defined(CONFIG_MACH_GOGH)
 	u32 fmax, pvs_leakage;
 #endif
 
@@ -1115,7 +1115,7 @@ static struct pvs_table * __init select_freq_plan(u32 pte_efuse_phys,
 	bin_idx = get_speed_bin(pte_efuse_val);
 	tbl_idx = get_pvs_bin(pte_efuse_val);
 
-#if defined(CONFIG_MACH_APEXQ)
+#if defined(CONFIG_MACH_APEXQ) || defined(CONFIG_MACH_GOGH)
 	pte_efuse = ioremap(pte_efuse_phys-4, 4);
 	pte_efuse_val = readl_relaxed(pte_efuse);
 	fmax = (pte_efuse_val >> 20) & 0x3;

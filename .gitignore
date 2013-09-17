@@ -44,6 +44,8 @@ modules.builtin
 /System.map
 /Module.markers
 /Module.symvers
+/gogh
+/infinite
 
 #
 # Debian directory (make deb-pkg)

@@ -318,6 +318,13 @@ obj-$(CONFIG_MACH_EXPRESS) += board-apexq-battery.o board-apexq-camera.o
 obj-$(CONFIG_MACH_EXPRESS) += board-express.o board-express-gpiomux.o
 obj-$(CONFIG_MACH_EXPRESS) += board-m2-display.o board-m2-pmic.o
 
+obj-$(CONFIG_MACH_GOGH)   += board-gogh.o board-gogh-gpiomux.o board-8960-regulator.o
+obj-$(CONFIG_MACH_GOGH)   += board-m2-display.o board-m2-pmic.o board-gogh-tsp.o
+obj-$(CONFIG_MACH_GOGH)   += board-8960-storage.o board-gogh-camera.o
+
+obj-$(CONFIG_MACH_INFINITE)   += board-infinite.o board-infinite-gpiomux.o board-8960-regulator.o
+obj-$(CONFIG_MACH_INFINITE)   += board-m2-display.o board-m2-pmic.o board-gogh-tsp.o
+obj-$(CONFIG_MACH_INFINITE)   += board-8960-storage.o board-apexq-camera.o
 obj-$(CONFIG_MACH_LGE) += lge/
 
 CFLAGS_msm_vibrator.o += -Idrivers/staging/android
